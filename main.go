@@ -14,5 +14,5 @@ func main() {
 
 	fmt.Println(fn.Fib(5))
 
-	po.PlusOne([]int{1})
+	fmt.Println(po.PlusOne([]int{4, 3, 2, 1}))
 }
