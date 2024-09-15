@@ -16,5 +16,7 @@ func main() {
 	fmt.Println(f.PlusOne([]int{4, 3, 2, 1}))
 
 	//TwoPointers
-	fmt.Println(tp.Init())
+	check := []byte{'h', 'e', 'l', 'l', 'o'}
+	tp.ReverseString(check)
+	fmt.Println(string(check))
 }
