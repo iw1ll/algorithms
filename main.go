@@ -3,7 +3,6 @@ package main
 import (
 	f "algorithms/first"
 	tp "algorithms/twoPointers"
-
 	"fmt"
 )
 
@@ -16,7 +15,8 @@ func main() {
 	fmt.Println(f.PlusOne([]int{4, 3, 2, 1}))
 
 	//TwoPointers
-	check := []byte{'h', 'e', 'l', 'l', 'o'}
-	tp.ReverseString(check)
-	fmt.Println(string(check))
+	reverseStr := []byte{'h', 'e', 'l', 'l', 'o'}
+	tp.ReverseString(reverseStr)
+	fmt.Printf("Reverse string: %s\n", string(reverseStr))
+	fmt.Println(tp.IsPalindrome("A man, a plan, a canal: Panama"))
 }

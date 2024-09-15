@@ -1,5 +1,7 @@
 package first
 
+import "fmt"
+
 // Two Sum
 
 // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -17,13 +19,31 @@ package first
 // Output: [0,1]
 
 func TwoSum(nums []int, target int) []int {
-	for i := 0; i < len(nums); i++ {
-		for j := i + 1; j < len(nums); j++ {
-			if nums[i]+nums[j] == target {
-				return []int{i, j}
-			}
+	// for i := 0; i < len(nums); i++ {
+	// 	for j := i + 1; j < len(nums); j++ {
+	// 		if nums[i]+nums[j] == target {
+	// 			return []int{i, j}
+	// 		}
+	// 	}
+	// }
+	// return nil
+	// Создаем пустую хеш-таблицу (словарь)
+	m := make(map[int]int)
+
+	// Проходим по каждому элементу массива nums
+	for i, n := range nums {
+		// Вычисляем дополнение target-n
+		if j, ok := m[target-n]; ok {
+			// Если в словаре m уже есть элемент с таким дополнением,
+			// то возвращаем их индексы
+			fmt.Println(j)
+			return []int{j, i}
 		}
+		// Добавляем текущий элемент n и его индекс i в словарь m
+		m[n] = i
 	}
+
+	// Если подходящей пары не найдено, возвращаем nil
 	return nil
 }
 
