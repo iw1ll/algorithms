@@ -19,4 +19,5 @@ func main() {
 	tp.ReverseString(reverseStr)
 	fmt.Printf("Reverse string: %s\n", string(reverseStr))
 	fmt.Println(tp.IsPalindrome("A man, a plan, a canal: Panama"))
+	fmt.Println(tp.TwoSum([]int{1, 2, 4}, 6))
 }
