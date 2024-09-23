@@ -1,6 +1,8 @@
 package twopointers
 
 import (
+	"fmt"
+	"slices"
 	"unicode"
 )
 
@@ -104,4 +106,130 @@ func TwoSum(numbers []int, target int) []int {
 		}
 	}
 	return []int{}
+}
+
+// 3Sum
+
+// Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+// Notice that the solution set must not contain duplicate triplets.
+
+// Example 1:
+// Input: nums = [-1,0,1,2,-1,-4]
+// Output: [[-1,-1,2],[-1,0,1]]
+// Explanation:
+// nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
+// nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
+// nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
+// The distinct triplets are [-1,0,1] and [-1,-1,2].
+// Notice that the order of the output and the order of the triplets does not matter.
+
+// Example 2:
+// Input: nums = [0,1,1]
+// Output: []
+// Explanation: The only possible triplet does not sum up to 0.
+
+// Example 3:
+// Input: nums = [0,0,0]
+// Output: [[0,0,0]]
+// Explanation: The only possible triplet sums up to 0.
+
+// Constraints:
+// 3 <= nums.length <= 3000
+// -105 <= nums[i] <= 105
+
+func ThreeSum(nums []int) [][]int {
+	// slices.Sort(nums)
+	// result := [][]int{}
+	// n := len(nums)
+	// for i := range n {
+	// 	target := -nums[i]
+	// 	left := i + 1
+	// 	right := n - 1
+	// 	for left < right {
+	// 		currentSum := nums[left] + nums[right]
+	// 		if currentSum == target {
+	// 			result = append(result, []int{target, nums[left], nums[right]})
+	// 		}
+	// 		if currentSum > target {
+	// 			right--
+	// 		} else {
+	// 			left++
+	// 		}
+	// 	}
+	// }
+	// return result
+	// Сортируем массив по возрастанию
+	slices.Sort(nums)
+
+	// Инициализируем пустой слайс для хранения результатов
+	result := [][]int{}
+
+	// Сохраняем длину массива
+	n := len(nums)
+
+	fmt.Println("Исходный массив:", nums)
+	fmt.Printf("Длина массива: %d\n", n)
+
+	// Цикл по всем возможным первым числам тройки
+	for i := 0; i < n-2; i++ {
+		fmt.Printf("Обрабатываем элемент под индексом %d (%d)\n", i, nums[i])
+
+		// Проверяем, нет ли дубликата первого числа
+		if i > 0 && nums[i] == nums[i-1] {
+			fmt.Println("Пропускаем дубликат первого числа")
+			continue
+		}
+
+		// Определяем целевое значение для суммы трех чисел
+		target := -nums[i]
+		fmt.Printf("Целевая сумма: %d (отрицание %d)\n", target, nums[i])
+
+		// Инициализируем указатели для поиска второй и третьей цифры
+		left, right := i+1, n-1
+
+		fmt.Printf("Левый указатель: %d, Правый указатель: %d\n", left, right)
+
+		// Поиск тройки
+		for left < right {
+			currentSum := nums[left] + nums[right]
+
+			fmt.Printf("Текущая сумма: %d\n", currentSum)
+
+			if currentSum == target {
+				fmt.Println("Найдена тройка!")
+
+				result = append(result, []int{nums[i], nums[left], nums[right]})
+				fmt.Printf("Добавлена тройка: [%d, %d, %d]\n", nums[i], nums[left], nums[right])
+
+				// Пропускаем дубликаты второго и третьего чисел
+				for left < right && nums[left] == nums[left+1] {
+					left++
+				}
+				for left < right && nums[right] == nums[right-1] {
+					right--
+				}
+
+				fmt.Printf("Обновленные указатели: Left=%d, Right=%d\n", left, right)
+
+				left++  // Увеличиваем left для поиска новой пары
+				right-- // Уменьшаем right для поиска нового третьего числа
+			} else if currentSum < target {
+				fmt.Println("Текущая сумма меньше целевой, двигаемся влево")
+				left++
+			} else {
+				fmt.Println("Текущая сумма больше целевой, двигаемся вправо")
+				right--
+			}
+
+			fmt.Printf("После движения: Left=%d, Right=%d\n", left, right)
+		}
+	}
+
+	fmt.Println("\nИтоговый результат:")
+	for _, triplet := range result {
+		fmt.Println(triplet)
+	}
+
+	return result // Возвращаем список всех уникальных тройек
+	//  прорешать еще раз
 }
