@@ -1,5 +1,7 @@
 package slidingwindow
 
+import "math"
+
 // Maximum Average Subarray I
 // You are given an integer array nums consisting of n elements, and an integer k.
 // Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value. Any answer with a calculation error less than 10-5 will be accepted.
@@ -18,5 +20,18 @@ package slidingwindow
 // -104 <= nums[i] <= 104
 
 func FindMaxAverage(nums []int, k int) float64 {
-	return 1.1
+	begin := 0
+	windowState := 0
+	var result float64 = 0
+
+	for end := range nums {
+		windowState += nums[end]
+		if end-begin+1 == k {
+			result = math.Max(float64(result), float64(windowState))
+			windowState -= nums[begin]
+			begin += 1
+		}
+	}
+
+	return result / float64(k)
 }
