@@ -22,7 +22,7 @@ import "math"
 func FindMaxAverage(nums []int, k int) float64 {
 	begin := 0
 	windowState := 0
-	var result float64 = 0
+	var result float64 = math.MinInt64
 
 	for end := range nums {
 		windowState += nums[end]
@@ -34,4 +34,54 @@ func FindMaxAverage(nums []int, k int) float64 {
 	}
 
 	return result / float64(k)
+}
+
+// Minimum Size Subarray Sum
+
+// Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
+
+// Example 1:
+// Input: target = 7, nums = [2,3,1,2,4,3]
+// Output: 2
+// Explanation: The subarray [4,3] has the minimal length under the problem constraint.
+
+// Example 2:
+// Input: target = 4, nums = [1,4,4]
+// Output: 1
+
+// Example 3:
+// Input: target = 11, nums = [1,1,1,1,1,1,1,1]
+// Output: 0
+
+// Constraints:
+// 1 <= target <= 109
+// 1 <= nums.length <= 105
+// 1 <= nums[i] <= 104
+
+func MinSubArrayLen(target int, nums []int) int {
+	begin := 0
+	windowState := 0
+	result := math.MaxInt64
+
+	for end := range nums {
+		windowState += nums[end]
+		for windowState >= target {
+			windowSize := end - begin + 1
+			result = min(result, windowSize)
+			windowState -= nums[begin]
+			begin++
+		}
+	}
+	if result == math.MaxInt64 {
+		return 0
+	}
+	return result
+}
+
+func min(a, b int) int {
+	if a > b {
+		return b
+	} else {
+		return a
+	}
 }

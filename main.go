@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello algorithm!")
+	fmt.Println("Hello algorithm! MinSubArrayLen")
 
 	// First
 	f.TwoSum([]int{3, 2, 4}, 6)
@@ -25,5 +25,6 @@ func main() {
 	tp.ThreeSum([]int{-1, 0, 1, 2, -1, -4})
 
 	// Sliding Window
-	fmt.Println(sw.FindMaxAverage([]int{1, 12, -5, -6, 50, 3}, 4))
+	sw.FindMaxAverage([]int{1, 12, -5, -6, 50, 3}, 4)
+	sw.MinSubArrayLen(7, []int{2, 3, 1, 2, 4, 3})
 }
