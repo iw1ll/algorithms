@@ -46,43 +46,43 @@ func Constructor() MyLinkedList {
 	return MyLinkedList{}
 }
 
-func (this *MyLinkedList) Get(index int) int {
-	if index < 0 || index >= this.Size {
+func (mll *MyLinkedList) Get(index int) int {
+	if index < 0 || index >= mll.Size {
 		return -1
 	}
 
-	current := this.Head
+	current := mll.Head
 	for i := 0; i < index; i++ {
 		current = current.Next
 	}
 	return current.Value
 }
 
-func (this *MyLinkedList) AddAtHead(val int) {
-	this.AddAtIndex(0, val)
+func (mll *MyLinkedList) AddAtHead(val int) {
+	mll.AddAtIndex(0, val)
 }
 
-func (this *MyLinkedList) AddAtTail(val int) {
-	this.AddAtIndex(this.Size, val)
+func (mll *MyLinkedList) AddAtTail(val int) {
+	mll.AddAtIndex(mll.Size, val)
 }
 
-func (this *MyLinkedList) AddAtIndex(index int, val int) {
-	if index < 0 || index > this.Size {
+func (mll *MyLinkedList) AddAtIndex(index int, val int) {
+	if index < 0 || index > mll.Size {
 		return
 	}
 
-	this.Size++
+	mll.Size++
 
 	if index == 0 {
 		newNode := &Node{
 			Value: val,
-			Next:  this.Head,
+			Next:  mll.Head,
 		}
-		this.Head = newNode
+		mll.Head = newNode
 		return
 	}
 
-	current := this.Head
+	current := mll.Head
 
 	for i := 0; i < index-1; i++ {
 		current = current.Next
@@ -95,19 +95,20 @@ func (this *MyLinkedList) AddAtIndex(index int, val int) {
 	}
 
 }
-func (this *MyLinkedList) DeleteAtIndex(index int) {
-	if index < 0 || index >= this.Size {
+
+func (mll *MyLinkedList) DeleteAtIndex(index int) {
+	if index < 0 || index >= mll.Size {
 		return
 	}
 
-	this.Size--
+	mll.Size--
 
 	if index == 0 {
-		this.Head = this.Head.Next
-
+		mll.Head = mll.Head.Next
+		return
 	}
 
-	current := this.Head
+	current := mll.Head
 
 	for i := 0; i < index-1; i++ {
 		current = current.Next
@@ -120,8 +121,8 @@ func Init() {
 	fmt.Println("init")
 }
 
-func (this *MyLinkedList) PrintList() {
-	current := this.Head
+func (mll *MyLinkedList) PrintList() {
+	current := mll.Head
 	for current != nil {
 		fmt.Print(current.Value, " -> ")
 		current = current.Next
@@ -129,3 +130,12 @@ func (this *MyLinkedList) PrintList() {
 	fmt.Println("nil")
 }
 
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Get(index);
+ * obj.AddAtHead(val);
+ * obj.AddAtTail(val);
+ * obj.AddAtIndex(index,val);
+ * obj.DeleteAtIndex(index);
+ */
