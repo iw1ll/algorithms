@@ -2,6 +2,7 @@ package main
 
 import (
 	f "algorithms/first"
+	linkedList "algorithms/linkedList"
 	sw "algorithms/slidingWindow"
 	tp "algorithms/twoPointers"
 
@@ -27,4 +28,15 @@ func main() {
 	// Sliding Window
 	sw.FindMaxAverage([]int{1, 12, -5, -6, 50, 3}, 4)
 	sw.MinSubArrayLen(7, []int{2, 3, 1, 2, 4, 3})
+
+	// LinkedList
+	linkedList.Init()
+	designLinkedList := linkedList.Constructor()
+	designLinkedList.AddAtHead(1)
+	designLinkedList.AddAtTail(3)
+	designLinkedList.AddAtIndex(1, 2)
+	designLinkedList.Get(1)
+	designLinkedList.DeleteAtIndex(1)
+	designLinkedList.Get(1)
+	designLinkedList.PrintList()
 }
