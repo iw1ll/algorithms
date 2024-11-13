@@ -1,7 +1,6 @@
 package twopointers
 
 import (
-	"fmt"
 	"slices"
 	"unicode"
 )
@@ -167,39 +166,39 @@ func ThreeSum(nums []int) [][]int {
 	// Сохраняем длину массива
 	n := len(nums)
 
-	fmt.Println("Исходный массив:", nums)
-	fmt.Printf("Длина массива: %d\n", n)
+	// fmt.Println("Исходный массив:", nums)
+	// fmt.Printf("Длина массива: %d\n", n)
 
 	// Цикл по всем возможным первым числам тройки
 	for i := 0; i < n-2; i++ {
-		fmt.Printf("Обрабатываем элемент под индексом %d (%d)\n", i, nums[i])
+		// fmt.Printf("Обрабатываем элемент под индексом %d (%d)\n", i, nums[i])
 
 		// Проверяем, нет ли дубликата первого числа
 		if i > 0 && nums[i] == nums[i-1] {
-			fmt.Println("Пропускаем дубликат первого числа")
+			// fmt.Println("Пропускаем дубликат первого числа")
 			continue
 		}
 
 		// Определяем целевое значение для суммы трех чисел
 		target := -nums[i]
-		fmt.Printf("Целевая сумма: %d (отрицание %d)\n", target, nums[i])
+		// fmt.Printf("Целевая сумма: %d (отрицание %d)\n", target, nums[i])
 
 		// Инициализируем указатели для поиска второй и третьей цифры
 		left, right := i+1, n-1
 
-		fmt.Printf("Левый указатель: %d, Правый указатель: %d\n", left, right)
+		// fmt.Printf("Левый указатель: %d, Правый указатель: %d\n", left, right)
 
 		// Поиск тройки
 		for left < right {
 			currentSum := nums[left] + nums[right]
 
-			fmt.Printf("Текущая сумма: %d\n", currentSum)
+			// fmt.Printf("Текущая сумма: %d\n", currentSum)
 
 			if currentSum == target {
-				fmt.Println("Найдена тройка!")
+				// fmt.Println("Найдена тройка!")
 
 				result = append(result, []int{nums[i], nums[left], nums[right]})
-				fmt.Printf("Добавлена тройка: [%d, %d, %d]\n", nums[i], nums[left], nums[right])
+				// fmt.Printf("Добавлена тройка: [%d, %d, %d]\n", nums[i], nums[left], nums[right])
 
 				// Пропускаем дубликаты второго и третьего чисел
 				for left < right && nums[left] == nums[left+1] {
@@ -209,26 +208,26 @@ func ThreeSum(nums []int) [][]int {
 					right--
 				}
 
-				fmt.Printf("Обновленные указатели: Left=%d, Right=%d\n", left, right)
+				// fmt.Printf("Обновленные указатели: Left=%d, Right=%d\n", left, right)
 
 				left++  // Увеличиваем left для поиска новой пары
 				right-- // Уменьшаем right для поиска нового третьего числа
 			} else if currentSum < target {
-				fmt.Println("Текущая сумма меньше целевой, двигаемся влево")
+				// fmt.Println("Текущая сумма меньше целевой, двигаемся влево")
 				left++
 			} else {
-				fmt.Println("Текущая сумма больше целевой, двигаемся вправо")
+				// fmt.Println("Текущая сумма больше целевой, двигаемся вправо")
 				right--
 			}
 
-			fmt.Printf("После движения: Left=%d, Right=%d\n", left, right)
+			// fmt.Printf("После движения: Left=%d, Right=%d\n", left, right)
 		}
 	}
 
-	fmt.Println("\nИтоговый результат:")
-	for _, triplet := range result {
-		fmt.Println(triplet)
-	}
+	// fmt.Println("\nИтоговый результат:")
+	// for _, triplet := range result {
+	// 	fmt.Println(triplet)
+	// }
 
 	return result // Возвращаем список всех уникальных тройек
 	//  прорешать еще раз

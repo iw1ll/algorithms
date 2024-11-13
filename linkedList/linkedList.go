@@ -46,43 +46,43 @@ func Constructor() MyLinkedList {
 	return MyLinkedList{}
 }
 
-func (mll *MyLinkedList) Get(index int) int {
-	if index < 0 || index >= mll.Size {
+func (list *MyLinkedList) Get(index int) int {
+	if index < 0 || index >= list.Size {
 		return -1
 	}
 
-	current := mll.Head
+	current := list.Head
 	for i := 0; i < index; i++ {
 		current = current.Next
 	}
 	return current.Value
 }
 
-func (mll *MyLinkedList) AddAtHead(val int) {
-	mll.AddAtIndex(0, val)
+func (list *MyLinkedList) AddAtHead(val int) {
+	list.AddAtIndex(0, val)
 }
 
-func (mll *MyLinkedList) AddAtTail(val int) {
-	mll.AddAtIndex(mll.Size, val)
+func (list *MyLinkedList) AddAtTail(val int) {
+	list.AddAtIndex(list.Size, val)
 }
 
-func (mll *MyLinkedList) AddAtIndex(index int, val int) {
-	if index < 0 || index > mll.Size {
+func (list *MyLinkedList) AddAtIndex(index int, val int) {
+	if index < 0 || index > list.Size {
 		return
 	}
 
-	mll.Size++
+	list.Size++
 
 	if index == 0 {
 		newNode := &Node{
 			Value: val,
-			Next:  mll.Head,
+			Next:  list.Head,
 		}
-		mll.Head = newNode
+		list.Head = newNode
 		return
 	}
 
-	current := mll.Head
+	current := list.Head
 
 	for i := 0; i < index-1; i++ {
 		current = current.Next
@@ -96,19 +96,19 @@ func (mll *MyLinkedList) AddAtIndex(index int, val int) {
 
 }
 
-func (mll *MyLinkedList) DeleteAtIndex(index int) {
-	if index < 0 || index >= mll.Size {
+func (list *MyLinkedList) DeleteAtIndex(index int) {
+	if index < 0 || index >= list.Size {
 		return
 	}
 
-	mll.Size--
+	list.Size--
 
 	if index == 0 {
-		mll.Head = mll.Head.Next
+		list.Head = list.Head.Next
 		return
 	}
 
-	current := mll.Head
+	current := list.Head
 
 	for i := 0; i < index-1; i++ {
 		current = current.Next
@@ -121,8 +121,8 @@ func Init() {
 	fmt.Println("init")
 }
 
-func (mll *MyLinkedList) PrintList() {
-	current := mll.Head
+func (list *MyLinkedList) PrintList() {
+	current := list.Head
 	for current != nil {
 		fmt.Print(current.Value, " -> ")
 		current = current.Next
