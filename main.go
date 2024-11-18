@@ -39,4 +39,14 @@ func main() {
 	designLinkedList.DeleteAtIndex(1)
 	designLinkedList.Get(1)
 	designLinkedList.PrintList()
+
+	// LinkedList Middle of the Linked List
+	values := []int{1, 2, 3, 4, 5}
+	head := linkedList.CreateLinkedList(values)
+	middle := linkedList.MiddleNode(head)
+	if middle != nil {
+		fmt.Printf("Middle: %d\n", middle.Val)
+	} else {
+		fmt.Println("Empty")
+	}
 }
