@@ -47,6 +47,6 @@ func main() {
 	if middle != nil {
 		fmt.Printf("Middle: %d\n", middle.Val)
 	} else {
-		fmt.Println("Empty!")
+		fmt.Println("Empty")
 	}
 }
