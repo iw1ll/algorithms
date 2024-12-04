@@ -2,6 +2,7 @@ package main
 
 import (
 	f "algorithms/first"
+	hashMap "algorithms/hashMap"
 	linkedList "algorithms/linkedList"
 	sw "algorithms/slidingWindow"
 	tp "algorithms/twoPointers"
@@ -49,4 +50,19 @@ func main() {
 	} else {
 		fmt.Println("Empty")
 	}
+
+	// Hash Map
+	h := &hashMap.MyHashMap{}
+	myHashMap := h.NewMyHashMap()
+
+	myHashMap.Put(1, 1)
+	myHashMap.Put(2, 2)
+
+	fmt.Println(myHashMap.Get(1))
+	fmt.Println(myHashMap.Get(2))
+	fmt.Println(myHashMap.Get(3))
+
+	myHashMap.Remove(2)
+	fmt.Println(myHashMap.Get(2))
+
 }
