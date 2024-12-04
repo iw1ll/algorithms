@@ -2,10 +2,10 @@ package main
 
 import (
 	f "algorithms/first"
-	hashMap "algorithms/hashMap"
-	linkedList "algorithms/linkedList"
-	sw "algorithms/slidingWindow"
-	tp "algorithms/twoPointers"
+	hashMap "algorithms/hash-map"
+	ll "algorithms/linked-list"
+	sw "algorithms/sliding-window"
+	tp "algorithms/two-pointers"
 
 	"fmt"
 )
@@ -31,8 +31,8 @@ func main() {
 	sw.MinSubArrayLen(7, []int{2, 3, 1, 2, 4, 3})
 
 	// LinkedList
-	linkedList.Init()
-	designLinkedList := linkedList.Constructor()
+	ll.Init()
+	designLinkedList := ll.Constructor()
 	designLinkedList.AddAtHead(1)
 	designLinkedList.AddAtTail(3)
 	designLinkedList.AddAtIndex(1, 2)
@@ -43,8 +43,8 @@ func main() {
 
 	// LinkedList Middle of the Linked List
 	values := []int{1, 2, 3, 4, 5}
-	head := linkedList.CreateLinkedList(values)
-	middle := linkedList.MiddleNode(head)
+	head := ll.CreateLinkedList(values)
+	middle := ll.MiddleNode(head)
 	if middle != nil {
 		fmt.Printf("Middle: %d\n", middle.Val)
 	} else {
