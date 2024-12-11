@@ -98,7 +98,7 @@ func (ll *LinkedList) Remove(key int) {
 	}
 }
 
-func (mh *MyHashMap) NewMyHashMap() *MyHashMap {
+func (hm *MyHashMap) NewMyHashMap() *MyHashMap {
 	n := 991
 	buckets := make([]*LinkedList, n)
 	for i := range buckets {
@@ -110,21 +110,21 @@ func (mh *MyHashMap) NewMyHashMap() *MyHashMap {
 	}
 }
 
-func (mh *MyHashMap) Hash(x int) int {
-	return x / mh.n
+func (hm *MyHashMap) Hash(x int) int {
+	return x % hm.n
 }
 
-func (mh *MyHashMap) Put(key int, value int) {
-	n := mh.Hash(key)
-	mh.buckets[n].Put(key, value)
+func (hm *MyHashMap) Put(key int, value int) {
+	n := hm.Hash(key)
+	hm.buckets[n].Put(key, value)
 }
 
-func (mh *MyHashMap) Get(key int) int {
-	n := mh.Hash(key)
-	return mh.buckets[n].Get(key)
+func (hm *MyHashMap) Get(key int) int {
+	n := hm.Hash(key)
+	return hm.buckets[n].Get(key)
 }
 
-func (mh *MyHashMap) Remove(key int) {
-	n := mh.Hash(key)
-	mh.buckets[n].Remove(key)
+func (hm *MyHashMap) Remove(key int) {
+	n := hm.Hash(key)
+	hm.buckets[n].Remove(key)
 }
