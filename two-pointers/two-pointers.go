@@ -107,6 +107,47 @@ func TwoSum(numbers []int, target int) []int {
 	return []int{}
 }
 
+// Squares of a Sorted Array
+
+// Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+
+// Example 1:
+
+// Input: nums = [-4,-1,0,3,10]
+// Output: [0,1,9,16,100]
+// Explanation: After squaring, the array becomes [16,1,0,9,100].
+// After sorting, it becomes [0,1,9,16,100].
+
+// Example 2:
+// Input: nums = [-7,-3,2,3,11]
+// Output: [4,9,9,49,121]
+
+// Constraints:
+
+// 1 <= nums.length <= 104
+// -104 <= nums[i] <= 104
+// nums is sorted in non-decreasing order.
+
+func SortedSquares(nums []int) []int {
+	n := len(nums)
+	result := make([]int, n)
+	left, right := 0, n-1
+
+	for i := n - 1; i >= 0; i-- {
+		rightSq := nums[right] * nums[right]
+		leftSq := nums[left] * nums[left]
+		if rightSq > leftSq {
+			result[i] = rightSq
+			right--
+		} else {
+			result[i] = leftSq
+			left++
+		}
+	}
+
+	return result
+}
+
 // 3Sum
 
 // Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
@@ -232,3 +273,5 @@ func ThreeSum(nums []int) [][]int {
 	return result // Возвращаем список всех уникальных тройек
 	//  прорешать еще раз
 }
+
+// 33:22

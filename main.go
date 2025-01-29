@@ -25,6 +25,7 @@ func main() {
 	tp.IsPalindrome("A man, a plan, a canal: Panama")
 	tp.TwoSum([]int{1, 2, 4}, 6)
 	tp.ThreeSum([]int{-1, 0, 1, 2, -1, -4})
+	fmt.Println(tp.SortedSquares([]int{-4, -1, 0, 3, 10}))
 
 	// Sliding Window
 	sw.FindMaxAverage([]int{1, 12, -5, -6, 50, 3}, 4)
@@ -58,11 +59,11 @@ func main() {
 	myHashMap.Put(1, 1)
 	myHashMap.Put(2, 2)
 
-	fmt.Println(myHashMap.Get(1))
-	fmt.Println(myHashMap.Get(2))
-	fmt.Println(myHashMap.Get(3))
+	myHashMap.Get(1)
+	myHashMap.Get(2)
+	myHashMap.Get(3)
 
 	myHashMap.Remove(2)
-	fmt.Println(myHashMap.Get(2))
+	myHashMap.Get(2)
 
 }
