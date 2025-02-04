@@ -25,7 +25,8 @@ func main() {
 	tp.IsPalindrome("A man, a plan, a canal: Panama")
 	tp.TwoSum([]int{1, 2, 4}, 6)
 	tp.ThreeSum([]int{-1, 0, 1, 2, -1, -4})
-	fmt.Println(tp.SortedSquares([]int{-4, -1, 0, 3, 10}))
+	tp.SortedSquares([]int{-4, -1, 0, 3, 10})
+	tp.RemoveDuplicates([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4})
 
 	// Sliding Window
 	sw.FindMaxAverage([]int{1, 12, -5, -6, 50, 3}, 4)
