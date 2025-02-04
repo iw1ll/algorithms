@@ -12,8 +12,9 @@ import (
 
 func main() {
 	fmt.Println("Hello algorithm! MinSubArrayLen")
+	moveZeroesSlice := []int{0, 1, 0, 3, 12}
 
-	// First
+	// Start
 	f.TwoSum([]int{3, 2, 4}, 6)
 	f.Fib(5)
 	f.PlusOne([]int{4, 3, 2, 1})
@@ -21,12 +22,14 @@ func main() {
 	//Two Pointers
 	reverseStr := []byte{'h', 'e', 'l', 'l', 'o'}
 	tp.ReverseString(reverseStr)
-	// fmt.Printf("Reverse string: %s\n", string(reverseStr))
+	// fmt.Println"Reverse string: %s\n", string(reverseStr)
 	tp.IsPalindrome("A man, a plan, a canal: Panama")
 	tp.TwoSum([]int{1, 2, 4}, 6)
 	tp.ThreeSum([]int{-1, 0, 1, 2, -1, -4})
 	tp.SortedSquares([]int{-4, -1, 0, 3, 10})
 	tp.RemoveDuplicates([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4})
+	tp.RemoveDuplicates([]int{0, 1, 0, 3, 12})
+	tp.MoveZeroes(moveZeroesSlice)
 
 	// Sliding Window
 	sw.FindMaxAverage([]int{1, 12, -5, -6, 50, 3}, 4)
