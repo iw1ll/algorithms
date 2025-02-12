@@ -30,6 +30,7 @@ func main() {
 	tp.RemoveDuplicates([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4})
 	tp.RemoveDuplicates([]int{0, 1, 0, 3, 12})
 	tp.MoveZeroes(moveZeroesSlice)
+	fmt.Println(tp.IsSubsequence("axc", "ahbgdc"))
 
 	// Sliding Window
 	sw.FindMaxAverage([]int{1, 12, -5, -6, 50, 3}, 4)
