@@ -372,5 +372,5 @@ func IsSubsequence(s string, t string) bool {
 		p2++
 	}
 
-	return true
+	return p1 == len(s)
 }

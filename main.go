@@ -70,5 +70,4 @@ func main() {
 
 	myHashMap.Remove(2)
 	myHashMap.Get(2)
-
 }
