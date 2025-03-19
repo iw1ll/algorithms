@@ -81,9 +81,37 @@ func MinSubArrayLen(target int, nums []int) int {
 func min(a, b int) int {
 	if a > b {
 		return b
-	} else {
-		return a
 	}
+	return a
 }
 
-// sliding window 25:23
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func LongestOnes(nums []int, k int) int {
+	begin := 0
+	// how much 0?
+	windowState := 0
+	result := 0
+
+	for end := range nums {
+		if nums[end] == 0 {
+			windowState++
+		}
+		for windowState > k {
+			if nums[begin] == 0 {
+				windowState--
+			}
+			begin++
+		}
+		currentLength := end - begin + 1
+		result = max(result, currentLength)
+	}
+	return result
+}
+
+// 37:06

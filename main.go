@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello algorithm! MinSubArrayLen")
+	fmt.Println("Hello algorithm!")
 	moveZeroesSlice := []int{0, 1, 0, 3, 12}
 
 	// Start
@@ -30,14 +30,15 @@ func main() {
 	tp.RemoveDuplicates([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4})
 	tp.RemoveDuplicates([]int{0, 1, 0, 3, 12})
 	tp.MoveZeroes(moveZeroesSlice)
-	fmt.Println(tp.IsSubsequence("axc", "ahbgdc"))
+	// fmt.Println(tp.IsSubsequence("axc", "ahbgdc"))
 
 	// Sliding Window
 	sw.FindMaxAverage([]int{1, 12, -5, -6, 50, 3}, 4)
 	sw.MinSubArrayLen(7, []int{2, 3, 1, 2, 4, 3})
+	fmt.Println(sw.LongestOnes([]int{0, 0, 0, 0}, 0))
 
 	// LinkedList
-	ll.Init()
+	// ll.Init()
 	designLinkedList := ll.Constructor()
 	designLinkedList.AddAtHead(1)
 	designLinkedList.AddAtTail(3)
