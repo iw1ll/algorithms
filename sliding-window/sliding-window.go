@@ -109,7 +109,6 @@ func LongestOnes(nums []int, k int) int {
 
 func LongestSubarray(nums []int) int {
 	begin := 0
-	// how much 0?
 	windowState := 0
 	result := 0
 
@@ -128,3 +127,5 @@ func LongestSubarray(nums []int) int {
 	}
 	return result
 }
+
+// t:37:05
