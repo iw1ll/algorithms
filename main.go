@@ -35,7 +35,8 @@ func main() {
 	// Sliding Window
 	sw.FindMaxAverage([]int{1, 12, -5, -6, 50, 3}, 4)
 	sw.MinSubArrayLen(7, []int{2, 3, 1, 2, 4, 3})
-	fmt.Println(sw.LongestOnes([]int{0, 0, 0, 0}, 0))
+	sw.LongestOnes([]int{0, 0, 0, 0}, 0)
+	fmt.Println(sw.LongestSubarray([]int{1, 1, 0, 1}))
 
 	// LinkedList
 	// ll.Init()

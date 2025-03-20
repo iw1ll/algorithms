@@ -85,13 +85,6 @@ func min(a, b int) int {
 	return a
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 func LongestOnes(nums []int, k int) int {
 	begin := 0
 	// how much 0?
@@ -114,4 +107,24 @@ func LongestOnes(nums []int, k int) int {
 	return result
 }
 
-// 37:06
+func LongestSubarray(nums []int) int {
+	begin := 0
+	// how much 0?
+	windowState := 0
+	result := 0
+
+	for end := range nums {
+		if nums[end] == 0 {
+			windowState++
+		}
+		for windowState > 1 {
+			if nums[begin] == 0 {
+				windowState--
+			}
+			begin++
+		}
+		currentLength := end - begin
+		result = max(result, currentLength)
+	}
+	return result
+}
