@@ -1,6 +1,8 @@
 package slidingwindow
 
-import "math"
+import (
+	"math"
+)
 
 // Maximum Average Subarray I
 // You are given an integer array nums consisting of n elements, and an integer k.
@@ -128,4 +130,24 @@ func LongestSubarray(nums []int) int {
 	return result
 }
 
-// t:37:05
+func TotalFruit(fruits []int) int {
+	begin := 0
+	windowState := make(map[int]int)
+	result := 0
+
+	for end := range fruits {
+		windowState[fruits[end]]++
+		for len(windowState) > 2 {
+			windowState[fruits[begin]]--
+			if windowState[fruits[begin]] == 0 {
+				delete(windowState, fruits[begin])
+			}
+			begin++
+		}
+		currentLength := end - begin + 1
+		result = max(result, currentLength)
+	}
+	return result
+}
+
+// t:41:22
