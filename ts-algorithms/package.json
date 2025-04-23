@@ -6,6 +6,7 @@
     "start": "node dist/main.js"
   },
   "devDependencies": {
+    "@types/node": "^22.14.1",
     "tsx": "^4.7.0",
     "typescript": "^5.8.3"
   }
