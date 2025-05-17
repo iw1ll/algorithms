@@ -19,3 +19,23 @@ export const longestSubarray = (nums: number[]): number => {
     }
     return result;
 };
+
+export const longestOnes = (nums: number[], k: number): number => {
+    let begin = 0
+	let windowState = 0
+	let result = 0
+
+    for (let end = 0; end < nums.length; end++) {
+        if (nums[end] === 0) {
+            windowState++;
+        }
+        while (windowState > k) {
+            if (nums[begin] === 0) {
+                windowState--
+            }
+            begin++;
+        }
+        result = Math.max(result, end - begin + 1)
+    }
+    return result;
+};
