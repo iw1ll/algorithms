@@ -9,7 +9,7 @@ export const containsDuplicate = (nums: number[]): boolean => {
 };
 
 export const isPalindrome = (s: string): boolean => {
-    const clean = s.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const clean = s.toLowerCase().replace(/[^a-z]/g, "");
 
     let left = 0;
     let right = clean.length - 1;
