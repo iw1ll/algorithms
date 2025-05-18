@@ -30,6 +30,8 @@ func main() {
 	tp.RemoveDuplicates([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4})
 	tp.RemoveDuplicates([]int{0, 1, 0, 3, 12})
 	tp.MoveZeroes(moveZeroesSlice)
+	fmt.Println(("StrIndex:"))
+	fmt.Println(tp.StrStr("a", "a"))
 	// fmt.Println(tp.IsSubsequence("axc", "ahbgdc"))
 
 	// Sliding Window

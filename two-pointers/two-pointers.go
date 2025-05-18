@@ -374,3 +374,22 @@ func IsSubsequence(s string, t string) bool {
 
 	return p1 == len(s)
 }
+
+func StrStr(haystack string, needle string) int {
+	if len(needle) == 0 {
+		return 0
+	}
+
+	for i := 0; i <= len(haystack)-len(needle); i++ {
+		j := 0
+		for j < len(needle) && haystack[i+j] == needle[j] {
+			j++
+		}
+
+		if j == len(needle) {
+			return i
+		}
+	}
+
+	return -1
+}
