@@ -39,8 +39,20 @@ export const longestOnes = (nums: number[], k: number): number => {
     }
     return result;
 };
-// Input: nums = [1,2,3,1], k = 3
-// Output: true
-export function containsNearbyDuplicate(nums: number[], k: number): boolean {
-    return true
+
+export const containsNearbyDuplicate = (nums: number[], k: number): boolean => {
+    let begin  = 0;
+
+    for (let end = 0; end < nums.length; end++) {
+        for (let i = begin; i < end; i++) {
+            if (nums[i] === nums[end]) {
+                return true;
+            }
+    }
+        if (end - begin >= k) {
+                begin++;
+        }
+    }
+
+    return false;
 };

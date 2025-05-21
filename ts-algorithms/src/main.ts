@@ -1,4 +1,5 @@
 import { containsNearbyDuplicate, longestOnes, longestSubarray } from './sliding-window/sliding-window.js';
+import { startTestPerformance } from './time/time.js';
 import { containsDuplicate, isPalindrome, strStr } from './two-pointers/two-pointers.js';
 import { sum } from './utils/math.js';
 
