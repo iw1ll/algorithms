@@ -56,3 +56,33 @@ export const containsNearbyDuplicate = (nums: number[], k: number): boolean => {
 
     return false;
 };
+
+export const containsNearbyDuplicateCopy = (nums: number[], k: number): boolean => {
+    const window = new Set<number>();
+    let left = 0;
+
+    for (let right = 0; right < nums.length; right++) {
+        if (window.has(nums[right])) return true;
+
+        window.add(nums[right]);
+
+        if (right - left >= k) {
+            window.delete(nums[left]);
+            left++;
+        }
+    }
+
+    return false;
+};
+
+export const countGoodSubstrings = (s: string): number => {
+    let count = 0;
+
+    for (let i = 0; i <= s.length - 3; i++) {
+        const a = s[i], b = s[i + 1], c = s[i + 2];
+        if (a !== b && a !== c && b !== c) {
+            count++;
+        }
+    }
+    return count;
+};
