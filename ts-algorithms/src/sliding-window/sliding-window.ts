@@ -1,3 +1,5 @@
+import { inflate } from "zlib";
+
 export const longestSubarray = (nums: number[]): number => {
     let begin = 0;
     let windowsState = 0;
@@ -85,4 +87,32 @@ export const countGoodSubstrings = (s: string): number => {
         }
     }
     return count;
+};
+
+// Один из способов получить 7 последовательных черных блоков — 
+// перекрасить 0-й, 3-й и 4-й блоки.
+// так что блоки = «BBBBBBWBW».
+// Можно показать, что невозможно получить 7 
+// последовательных черных блоков менее чем за 3 операции.
+// Поэтому возвращаем 3.
+
+export const minimumRecolors = (blocks: string, k: number): number => {
+    let start = 0;
+    let whiteCount = 0;
+    let result = Infinity;
+
+    for (let end = 0; end < blocks.length; end++) {
+        if (blocks[end] === 'W') {
+            whiteCount++;
+        }
+
+        if (end - start + 1 === k) {
+            result = Math.min(result, whiteCount)
+            if (blocks[start] === 'W') {
+                whiteCount--;
+            }
+            start++;
+        }
+    }
+    return result;
 };
