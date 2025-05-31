@@ -39,7 +39,8 @@ func main() {
 	sw.MinSubArrayLen(7, []int{2, 3, 1, 2, 4, 3})
 	sw.LongestOnes([]int{0, 0, 0, 0}, 0)
 	sw.LongestSubarray([]int{1, 1, 0, 1})
-	fmt.Println(sw.TotalFruit([]int{1, 2, 1}))
+	sw.TotalFruit([]int{1, 2, 1})
+	sw.MinimumRecolors("WBBWWBBWBW", 7)
 
 	// LinkedList
 	// ll.Init()

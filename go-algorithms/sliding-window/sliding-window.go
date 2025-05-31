@@ -109,3 +109,24 @@ func TotalFruit(fruits []int) int {
 	}
 	return result
 }
+
+func MinimumRecolors(blocks string, k int) int {
+	start := 0
+	count := 0
+	result := len(blocks)
+
+	for end := 0; end < len(blocks); end++ {
+		if blocks[end] == 'W' {
+			count++
+		}
+
+		if end-start+1 == k {
+			result = min(result, count)
+			if blocks[start] == 'W' {
+				count--
+			}
+			start++
+		}
+	}
+	return result
+}
