@@ -1,5 +1,3 @@
-import { inflate } from "zlib";
-
 export const longestSubarray = (nums: number[]): number => {
     let begin = 0;
     let windowsState = 0;
@@ -109,3 +107,15 @@ export const minimumRecolors = (blocks: string, k: number): number => {
     }
     return result;
 };
+
+export const minimumDifference = (nums: number[], k: number): number => {
+    let result = Infinity;
+    nums.sort((a, b) => a - b);
+
+    for (let i = 0; i <= nums.length - k; i++) {
+        let diff = nums[i + k - 1] - nums[i];
+
+        result = Math.min(result, diff);
+    }
+    return result;
+}

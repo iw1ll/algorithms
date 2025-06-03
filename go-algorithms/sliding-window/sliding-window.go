@@ -2,6 +2,7 @@ package slidingwindow
 
 import (
 	"math"
+	"sort"
 )
 
 func FindMaxAverage(nums []int, k int) float64 {
@@ -115,7 +116,7 @@ func MinimumRecolors(blocks string, k int) int {
 	count := 0
 	result := len(blocks)
 
-	for end := 0; end < len(blocks); end++ {
+	for end := range blocks {
 		if blocks[end] == 'W' {
 			count++
 		}
@@ -128,5 +129,19 @@ func MinimumRecolors(blocks string, k int) int {
 			start++
 		}
 	}
+	return result
+}
+
+func MinimumDifference(nums []int, k int) int {
+	sort.Ints(nums)
+
+	result := math.MaxInt
+
+	for i := 0; i <= len(nums)-k; i++ {
+		a := nums[i+k-1] - nums[i]
+
+		result = min(a, result)
+	}
+
 	return result
 }

@@ -30,9 +30,8 @@ func main() {
 	tp.RemoveDuplicates([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4})
 	tp.RemoveDuplicates([]int{0, 1, 0, 3, 12})
 	tp.MoveZeroes(moveZeroesSlice)
-	fmt.Println(("StrIndex:"))
-	fmt.Println(tp.StrStr("a", "a"))
-	// fmt.Println(tp.IsSubsequence("axc", "ahbgdc"))
+	tp.StrStr("a", "a")
+	tp.IsSubsequence("axc", "ahbgdc")
 
 	// Sliding Window
 	sw.FindMaxAverage([]int{1, 12, -5, -6, 50, 3}, 4)
@@ -41,6 +40,7 @@ func main() {
 	sw.LongestSubarray([]int{1, 1, 0, 1})
 	sw.TotalFruit([]int{1, 2, 1})
 	sw.MinimumRecolors("WBBWWBBWBW", 7)
+	sw.MinimumDifference([]int{9, 4, 1, 7}, 2)
 
 	// LinkedList
 	// ll.Init()
@@ -54,6 +54,7 @@ func main() {
 	designLinkedList.PrintList()
 
 	// LinkedList Middle of the Linked List
+
 	values := []int{1, 2, 3, 4, 5}
 	head := ll.CreateLinkedList(values)
 	middle := ll.MiddleNode(head)
