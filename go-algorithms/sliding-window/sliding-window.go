@@ -138,9 +138,9 @@ func MinimumDifference(nums []int, k int) int {
 	result := math.MaxInt
 
 	for i := 0; i <= len(nums)-k; i++ {
-		a := nums[i+k-1] - nums[i]
+		diff := nums[i+k-1] - nums[i]
 
-		result = min(a, result)
+		result = min(diff, result)
 	}
 
 	return result
