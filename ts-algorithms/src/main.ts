@@ -1,3 +1,4 @@
+import { testList } from './linked-list/design-linked-list.js';
 import { ListNode, middleNode } from './linked-list/middle-off-the-linked-list.js';
 import { reverseList } from './linked-list/reverse-linked-list.js';
 import { containsNearbyDuplicate, countGoodSubstrings, longestOnes, longestSubarray, minimumDifference, minimumRecolors } from './sliding-window/sliding-window.js';
@@ -25,3 +26,4 @@ minimumDifference([9,4,1,7], 2);
 const list = new ListNode(1, new ListNode(2, new ListNode(3, null)));
 const middleLinkedList = middleNode(list);
 const reverseLinkedList = reverseList(list);
+testList();
