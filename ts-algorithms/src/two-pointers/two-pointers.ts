@@ -9,7 +9,7 @@ export const containsDuplicate = (nums: number[]): boolean => {
 };
 
 export const isPalindrome = (s: string): boolean => {
-    const clean = s.toLowerCase().replace(/[^a-z]/g, "");
+    const clean = s.toLowerCase().replace(/[^a-z0-9]/g, "");
 
     let left = 0;
     let right = clean.length - 1;
@@ -27,7 +27,6 @@ export const strStr = (haystack: string, needle: string): number => {
 
     const haystackLen = haystack.length;
     const needleLen = needle.length;
-
     const maxStartIndex = haystackLen - needleLen;
 
     for (let i = 0; i <= maxStartIndex; i++) {
@@ -44,3 +43,17 @@ export const strStr = (haystack: string, needle: string): number => {
 
     return -1;
 };
+
+
+export const reverseString = (s: string[]): void => {
+    let left = 0;
+    let right = s.length - 1;
+    while (left < right) {
+        let temp = s[left];
+        s[left] = s[right];
+        s[right] = temp;
+        left++;
+        right--;
+    }
+};
+

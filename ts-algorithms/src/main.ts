@@ -2,7 +2,7 @@ import { testList } from './linked-list/design-linked-list.js';
 import { ListNode, middleNode } from './linked-list/middle-off-the-linked-list.js';
 import { reverseList } from './linked-list/reverse-linked-list.js';
 import { containsNearbyDuplicate, countGoodSubstrings, longestOnes, longestSubarray, minimumDifference, minimumRecolors } from './sliding-window/sliding-window.js';
-import { containsDuplicate, isPalindrome, strStr } from './two-pointers/two-pointers.js';
+import { containsDuplicate, isPalindrome, reverseString, strStr } from './two-pointers/two-pointers.js';
 import { sum } from './utils/math.js';
 
 /** Math */
@@ -10,8 +10,9 @@ sum(2, 3);
 
 /** Two pointers */
 containsDuplicate([1,2,3,]);
-isPalindrome("aaaa");
+isPalindrome("A man, a plan, a canal: Panama");
 strStr('abc', 'c');
+reverseString(["h","e","l","l","o"]);
 
 
 /** Sliding window  */
