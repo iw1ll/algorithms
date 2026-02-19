@@ -76,3 +76,24 @@ export const twoSum = (numbers: number[], target: number): number[] => {
 
     return [-1];
 }
+
+export const sortedSquares = (nums: number[]): number[] => {
+    const result = [];
+    let left = 0;
+    let right = nums.length - 1;
+
+    for (let i = nums.length - 1; i >= 0; i--) {
+        let rightSqrt = nums[right] * nums[right]; 
+        let leftSqrt = nums[left] * nums[left]; 
+
+        if (rightSqrt > leftSqrt) {
+            result[i] = rightSqrt;
+            right--;
+        } else {
+            result[i] = leftSqrt;
+            left++;
+        }
+    }
+
+    return result;
+};
