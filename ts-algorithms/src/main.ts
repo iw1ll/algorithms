@@ -2,7 +2,7 @@ import { testList } from './linked-list/design-linked-list.js';
 import { ListNode, middleNode } from './linked-list/middle-off-the-linked-list.js';
 import { reverseList } from './linked-list/reverse-linked-list.js';
 import { containsNearbyDuplicate, countGoodSubstrings, longestOnes, longestSubarray, minimumDifference, minimumRecolors } from './sliding-window/sliding-window.js';
-import { containsDuplicate, isPalindrome, reverseString, sortedSquares, strStr, twoSum } from './two-pointers/two-pointers.js';
+import { containsDuplicate, isPalindrome, removeDuplicates, reverseString, sortedSquares, strStr, twoSum } from './two-pointers/two-pointers.js';
 import { sum } from './utils/math.js';
 
 /** Math */
@@ -15,6 +15,7 @@ strStr('abc', 'c');
 reverseString(["h","e","l","l","o"]);
 twoSum([2, 3, 4], 6);
 sortedSquares([-4 ,-1 ,0 ,3 , 10]);
+removeDuplicates([0,0,1,1,1,2,2,3,3,4]);
 
 /** Sliding window  */
 longestSubarray([1, 0, 1, 1, 1]);
