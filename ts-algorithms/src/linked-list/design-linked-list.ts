@@ -80,7 +80,9 @@ class MyLinkedList {
             current = current.next;
         }
 
-        current!.next = current!.next!.next;
+        if (current && current.next && current.next.next) {
+            current.next = current.next.next;
+        }
 
         this.size--;
     }
@@ -95,6 +97,6 @@ export const testList = (): MyLinkedList => {
     list.addAtTail(4);
     const param = list.get(0)
     // console.log(new ListNode(1, new ListNode(2, new ListNode(3, null))));
-    console.log(param)
+    // console.log(param)
     return list;
 }
