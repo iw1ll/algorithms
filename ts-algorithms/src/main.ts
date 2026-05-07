@@ -2,9 +2,11 @@ import { testList } from './linked-list/design-linked-list.js';
 import { ListNode, middleNode } from './linked-list/middle-off-the-linked-list.js';
 import { reverseList } from './linked-list/reverse-linked-list.js';
 import { containsNearbyDuplicate, countGoodSubstrings, longestOnes, longestSubarray, minimumDifference, minimumRecolors } from './sliding-window/sliding-window.js';
-import { containsDuplicate, isPalindrome, removeDuplicates, reverseString, sortedSquares, strStr, twoSum } from './two-pointers/two-pointers.js';
+import { containsDuplicate, isPalindrome, removeDuplicates, reverseString, sortedSquares, strStr, tp, twoSum, } from './two-pointers/two-pointers.js';
 import { sum } from './utils/math.js';
 
+
+console.log("Start algorithms");
 /** Math */
 sum(2, 3);
 
@@ -16,6 +18,7 @@ reverseString(["h","e","l","l","o"]);
 twoSum([2, 3, 4], 6);
 sortedSquares([-4 ,-1 ,0 ,3 , 10]);
 removeDuplicates([0,0,1,1,1,2,2,3,3,4]);
+https://leetcode.com/problems/3sum/ ---> решаем на свежую голову
 
 /** Sliding window  */
 longestSubarray([1, 0, 1, 1, 1]);
@@ -30,3 +33,7 @@ const list = new ListNode(1, new ListNode(2, new ListNode(3, null)));
 const middleLinkedList = middleNode(list);
 const reverseLinkedList = reverseList(list);
 testList();
+
+// Переписать на hash-table
+tp([2,7,11,15], 9);
+

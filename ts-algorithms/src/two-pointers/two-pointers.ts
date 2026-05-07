@@ -109,3 +109,21 @@ export const removeDuplicates = (nums: number[]): number => {
 
     return k + 1;
 };
+
+export const tp = (nums: number[], target: number): number[] => {
+    for(let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+                return [i, j];
+            }
+        }
+    }
+
+    return []; 
+};
+
+
+export function threeSum(nums: number[]): number[][] {
+    return [[]] // 22.25
+};
+//30.55
