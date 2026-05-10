@@ -2,7 +2,7 @@ import { testList } from './linked-list/design-linked-list.js';
 import { ListNode, middleNode } from './linked-list/middle-off-the-linked-list.js';
 import { reverseList } from './linked-list/reverse-linked-list.js';
 import { containsNearbyDuplicate, countGoodSubstrings, longestOnes, longestSubarray, minimumDifference, minimumRecolors } from './sliding-window/sliding-window.js';
-import { containsDuplicate, isPalindrome, removeDuplicates, reverseString, sortedSquares, strStr, tp, twoSum, } from './two-pointers/two-pointers.js';
+import { containsDuplicate, isPalindrome, maxArea, removeDuplicates, reverseString, sortedSquares, strStr, tp, twoSum, } from './two-pointers/two-pointers.js';
 import { sum } from './utils/math.js';
 
 
@@ -18,6 +18,7 @@ reverseString(["h","e","l","l","o"]);
 twoSum([2, 3, 4], 6);
 sortedSquares([-4 ,-1 ,0 ,3 , 10]);
 removeDuplicates([0,0,1,1,1,2,2,3,3,4]);
+console.log(maxArea([1,8,6,2,5,4,8,3,7]));
 https://leetcode.com/problems/3sum/ ---> решаем на свежую голову
 
 /** Sliding window  */
@@ -36,4 +37,5 @@ testList();
 
 // Переписать на hash-table
 tp([2,7,11,15], 9);
+
 

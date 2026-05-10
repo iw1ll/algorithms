@@ -122,8 +122,23 @@ export const tp = (nums: number[], target: number): number[] => {
     return []; 
 };
 
+export const maxArea = (height: number[]): number => {
+    let left = 0;
+    let right = height.length - 1;
+    let maxWater = 0;
 
-export function threeSum(nums: number[]): number[][] {
-    return [[]] // 22.25
+    while (left < right) {
+        const width = right - left;
+        const minHeight = Math.min(height[left], height[right]);
+        const water = minHeight * width;
+        maxWater = Math.max(maxWater, water);
+
+        if (height[left] < height[right]) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    return maxWater;
 };
-//30.55
