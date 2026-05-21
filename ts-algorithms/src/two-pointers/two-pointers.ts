@@ -142,3 +142,91 @@ export const maxArea = (height: number[]): number => {
 
     return maxWater;
 };
+
+function threeSum(nums: number[]): number[][] {
+    const result: number[][] = [];
+    
+    // 1. СОРТИРУЕМ МАССИВ
+    // Без сортировки нельзя использовать два поинтера
+    nums.sort((a, b) => a - b);
+    
+    // 2. ФИКСИРУЕМ ПЕРВОЕ ЧИСЛО
+    for (let i = 0; i < nums.length - 2; i++) {
+        
+        // ПРОПУСК ДУБЛИКАТОВ для первого числа
+        // Если nums[i] такой же как предыдущий — эту тройку уже нашли
+        if (i > 0 && nums[i] === nums[i - 1]) {
+            continue;
+        }
+        
+        // ОПТИМИЗАЦИЯ: если первое число > 0,
+        // то сумма трёх положительных чисел не может быть 0
+        if (nums[i] > 0) {
+            break;
+        }
+        
+        // 3. ДВА ПОИНТЕРА ДЛЯ ОСТАВШИХСЯ ДВУХ ЧИСЕЛ
+        let left = i + 1;
+        let right = nums.length - 1;
+        
+        while (left < right) {
+            const sum = nums[i] + nums[left] + nums[right];
+            
+            if (sum === 0) {
+                // НАШЛИ ТРОЙКУ!
+                result.push([nums[i], nums[left], nums[right]]);
+                
+                // ПРОПУСКАЕМ ДУБЛИКАТЫ слева
+                while (left < right && nums[left] === nums[left + 1]) {
+                    left++;
+                }
+                
+                // ПРОПУСКАЕМ ДУБЛИКАТЫ справа
+                while (left < right && nums[right] === nums[right - 1]) {
+                    right--;
+                }
+                
+                // Двигаем оба указателя
+                left++;
+                right--;
+                
+            } else if (sum < 0) {
+                // Сумма меньше нуля → нужно увеличить
+                // Двигаем left вправо (к бОльшим числам)
+                left++;
+            } else {
+                // Сумма больше нуля → нужно уменьшить
+                // Двигаем right влево (к меньшим числам)
+                right--;
+            }
+        }
+    }
+    
+    return result;
+}
+
+export const isSubsequence = (s:string, t: string): boolean => {
+    let sNum = 0;
+
+    for (let i = 0; i < t.length; i++) {
+        if (t[i] === s[sNum]) {
+            sNum++;
+        }
+    }
+    if (s.length === sNum) {
+        return true;
+    }
+
+    return false;
+};
+
+export const moveZeroes = (nums: number[]) => {
+    let left = 0;
+
+    for(let right = 0; right < nums.length; right++) {
+        if (nums[right] !== 0) {
+            [nums[left], nums[right]] = [nums[right], nums[left]];
+            left++;
+        }
+    }
+};
