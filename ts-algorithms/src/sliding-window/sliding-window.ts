@@ -119,3 +119,42 @@ export const minimumDifference = (nums: number[], k: number): number => {
     }
     return result;
 }
+
+export const minSubArrayLen = (target: number, nums: number[]): number => {
+    let begin = 0;
+    let windowState = 0;
+    let result = Infinity;
+
+    for (let end = 0; end < nums.length; end++) {
+        windowState += nums[end];
+        while (windowState >= target) {
+            let windowsSize = end - begin + 1;
+            result = Math.min(result, windowsSize);
+            windowState -= nums[begin];
+            begin++;
+        }
+    }
+
+    return result === Infinity? 0 : result;
+};
+
+export const totalFruit = (fruits: number[]): number => {
+    let begin = 0;
+    let windowState = new Map();
+    let result = 0;
+
+    for (let end = 0; end < fruits.length; end++) {
+        windowState.set(fruits[end], (windowState.get(fruits[end]) || 0) + 1);
+        
+        while (windowState.size > 2) {
+            windowState.set(fruits[begin], (windowState.get(fruits[begin]) - 1));
+            if (windowState.get(fruits[begin]) === 0) {
+                windowState.delete(fruits[begin]);
+            }
+            begin++;
+        }
+        result = Math.max(result, end - begin + 1);
+    }
+
+    return result;
+};
