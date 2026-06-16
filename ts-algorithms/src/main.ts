@@ -1,7 +1,8 @@
+import { MyLinkedList } from './linked-list/linked-list-repeat.js';
 import { testList } from './linked-list/design-linked-list.js';
 import { ListNode, middleNode } from './linked-list/middle-off-the-linked-list.js';
 import { reverseList } from './linked-list/reverse-linked-list.js';
-import { containsNearbyDuplicate, countGoodSubstrings, longestOnes, longestSubarray, minimumDifference, minimumRecolors } from './sliding-window/sliding-window.js';
+import { containsNearbyDuplicate, countGoodSubstrings, longestOnes, longestSubarray, minimumDifference, minimumRecolors, totalFruit } from './sliding-window/sliding-window.js';
 import { containsDuplicate, isPalindrome, maxArea, removeDuplicates, reverseString, sortedSquares, strStr, tp, twoSum, } from './two-pointers/two-pointers.js';
 import { sum } from './utils/math.js';
 
@@ -18,7 +19,7 @@ reverseString(["h","e","l","l","o"]);
 twoSum([2, 3, 4], 6);
 sortedSquares([-4 ,-1 ,0 ,3 , 10]);
 removeDuplicates([0,0,1,1,1,2,2,3,3,4]);
-console.log(maxArea([1,8,6,2,5,4,8,3,7]));
+maxArea([1,8,6,2,5,4,8,3,7]);
 https://leetcode.com/problems/3sum/ ---> решаем на свежую голову
 
 /** Sliding window  */
@@ -28,6 +29,7 @@ containsNearbyDuplicate([1, 2, 3, 1], 3);
 countGoodSubstrings('aababcabc');
 minimumRecolors('WBWBBBW', 2);
 minimumDifference([9, 4, 1, 7], 2);
+totalFruit([1,2,3,2,2]);
 
 /** Linked List */
 const list = new ListNode(1, new ListNode(2, new ListNode(3, null)));
@@ -37,5 +39,3 @@ testList();
 
 // Переписать на hash-table
 tp([2,7,11,15], 9);
-
-
