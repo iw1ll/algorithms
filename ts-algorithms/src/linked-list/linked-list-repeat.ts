@@ -104,8 +104,28 @@ export const middleNode = (head: ListNode | null): ListNode | null => {
 
     while (fast && fast.next) {
         fast = fast.next.next;
-            slow = slow!.next;
+        slow = slow!.next;
     }
 
     return slow;
+};
+
+export const deleteMiddle = (head: ListNode | null): ListNode | null => {
+    if (head === null || head.next === null) {
+        return null;
+    }
+
+    let slow: ListNode | null = head;
+    let fast = head?.next?.next;
+
+    while (slow && fast && fast.next) {
+        fast = fast.next.next;
+        slow = slow!.next;
+    }
+
+    if (slow && slow.next) {
+        slow!.next = slow!.next!.next;
+    }
+
+    return head;
 };
