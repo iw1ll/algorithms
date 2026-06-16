@@ -129,3 +129,45 @@ export const deleteMiddle = (head: ListNode | null): ListNode | null => {
 
     return head;
 };
+
+
+
+function isPalindrome(head: ListNode | null): boolean {
+    function middle(head: ListNode | null): ListNode | null {
+        let slow = head;
+        let fast = head;
+
+        while (slow && fast && fast.next) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+    
+    function reverse(head: ListNode | null): ListNode | null {
+        let current = head;
+        let prev: ListNode | null = null;
+
+        while (current) {
+            let tmp: ListNode | null = current.next;
+            current.next = prev;
+            prev = current;
+            current = tmp;
+        }
+        return prev;
+    }
+    
+    let mid = middle(head);
+    let second = reverse(mid)
+    let first = head;
+     
+    while (first && second) {
+        if (first.val !== second.val) {
+            return false;
+        } else {
+            first = first.next;
+            second = second.next;
+        }
+    }
+    return true;
+};
