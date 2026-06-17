@@ -1,7 +1,7 @@
 export class ListNode {
     val: number;
     next: ListNode | null;
-    constructor(val: number, next: ListNode | null) {
+    constructor(val: number, next: ListNode | null = null) {
         this.val = val;
         this.next = next;
     }
@@ -170,4 +170,42 @@ function isPalindrome(head: ListNode | null): boolean {
         }
     }
     return true;
+};
+
+export function deleteDuplicates(head: ListNode | null): ListNode | null {
+    let current = head;
+
+    while (current && current.next) {
+        if (current.val === current.next.val) {
+            current.next = current.next.next;
+        } else {
+            current = current.next;
+        }
+    }
+
+    return head;
+};
+
+export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+    let dummy = new ListNode(0);
+    dummy.next = head;
+    let slow: ListNode | null = dummy;
+    let fast: ListNode | null = dummy;
+
+    for (let i = 0; i < n + 1; i++) {
+        if (fast) {
+            fast = fast.next;
+        }
+    }
+
+    while (slow && fast) {
+        slow = slow.next;
+        fast = fast.next;
+    }
+
+    if (slow && slow.next) {
+        slow.next = slow?.next.next;
+    }
+
+    return dummy.next;
 };
