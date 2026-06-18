@@ -204,7 +204,27 @@ export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | n
     }
 
     if (slow && slow.next) {
-        slow.next = slow?.next.next;
+        slow.next = slow.next.next;
+    }
+
+    return dummy.next;
+};
+
+export function swapPairs(head: ListNode | null): ListNode | null {
+    let dummy = new ListNode(0, head);
+    let current = head;
+    let prev = dummy;
+
+    while (current && current.next) {
+        let first = current;
+        let second = current.next;
+
+        first.next = second.next;
+        second.next = first;
+        prev.next = second;
+
+        prev = first;
+        current = first.next;
     }
 
     return dummy.next;
