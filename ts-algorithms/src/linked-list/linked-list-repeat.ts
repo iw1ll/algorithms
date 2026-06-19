@@ -1,9 +1,11 @@
+import { cursorTo } from "readline";
+
 export class ListNode {
     val: number;
     next: ListNode | null;
-    constructor(val: number, next: ListNode | null = null) {
-        this.val = val;
-        this.next = next;
+    constructor(val?: number, next?: ListNode | null) {
+        this.val = (val===undefined ? 0 : val)
+        this.next = (next===undefined ? null : next)
     }
 }
 
@@ -212,20 +214,62 @@ export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | n
 
 export function swapPairs(head: ListNode | null): ListNode | null {
     let dummy = new ListNode(0, head);
-    let current = head;
-    let prev = dummy;
+    let current = dummy;
 
-    while (current && current.next) {
-        let first = current;
-        let second = current.next;
+    while (current.next && current.next.next) {
+        let first = current.next;
+        let second = current.next.next;
 
         first.next = second.next;
         second.next = first;
-        prev.next = second;
+        current.next = second;
 
-        prev = first;
-        current = first.next;
+        current = first;
     }
 
     return dummy.next;
+};
+
+export function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+    let dummy = new ListNode(0, null );
+    let current = dummy;
+
+    let p1 = list1;
+    let p2 = list2;
+
+    while (p1 && p2) {
+        if (p1.val < p2.val) {
+            current.next = p1;
+            p1 = p1.next;
+        } else {
+            current.next = p2;
+            p2 = p2.next;
+        }
+        current = current.next;
+    }
+        if (p1) {
+            current.next = p1;
+        }
+
+        if (p2) {
+            current.next = p2;
+        }
+
+    return dummy.next;
+};
+
+export function hasCycle(head: ListNode | null): boolean {
+    let slow = head;
+    let fast = head;
+
+    while (slow && fast && fast.next) {
+        slow = slow?.next;
+        fast = fast.next.next;
+
+        if (slow === fast) {
+            return true;
+        }
+    }
+
+    return false;
 };
