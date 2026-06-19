@@ -1,6 +1,6 @@
-import { MyLinkedList } from './linked-list/linked-list-repeat.js';
+import { deleteDuplicates, deleteMiddle, middleNode, MyLinkedList, swapPairs } from './linked-list/linked-list-repeat.js';
 import { testList } from './linked-list/design-linked-list.js';
-import { ListNode, middleNode } from './linked-list/middle-off-the-linked-list.js';
+import { ListNode } from './linked-list/middle-off-the-linked-list.js';
 import { reverseList } from './linked-list/reverse-linked-list.js';
 import { containsNearbyDuplicate, countGoodSubstrings, longestOnes, longestSubarray, minimumDifference, minimumRecolors, totalFruit } from './sliding-window/sliding-window.js';
 import { containsDuplicate, isPalindrome, maxArea, removeDuplicates, reverseString, sortedSquares, strStr, tp, twoSum, } from './two-pointers/two-pointers.js';
@@ -32,10 +32,17 @@ minimumDifference([9, 4, 1, 7], 2);
 totalFruit([1,2,3,2,2]);
 
 /** Linked List */
-const list = new ListNode(1, new ListNode(2, new ListNode(3, null)));
+const list = new ListNode(1, new ListNode(2, new ListNode(3 , null)));
 const middleLinkedList = middleNode(list);
 const reverseLinkedList = reverseList(list);
-testList();
+const del = deleteMiddle(list)
+const palindromeLinkerList = new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(1))));
+const duplicates = new ListNode(1, new ListNode(1, new ListNode(2 , null)));
+const listPairs = new ListNode(1, new ListNode(2, new ListNode(3 , new ListNode(4))));
+swapPairs(listPairs);
 
+testList();
 // Переписать на hash-table
 tp([2,7,11,15], 9);
+
+
