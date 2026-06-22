@@ -41,8 +41,4 @@ const duplicates = new ListNode(1, new ListNode(1, new ListNode(2 , null)));
 const listPairs = new ListNode(1, new ListNode(2, new ListNode(3 , new ListNode(4))));
 swapPairs(listPairs);
 
-testList();
-// Переписать на hash-table
-tp([2,7,11,15], 9);
-
-
+/** Hash Table */
