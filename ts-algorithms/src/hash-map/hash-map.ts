@@ -1,34 +1,24 @@
-// class MyHashMap {
-// 	n:number;
-// 	buckets: LinkedList[];
+class MyListNode {
+    key: number;
+    value: number;
+    next: MyListNode | null;
 
-//     constructor(n:number, buckets: LinkedList[]) {
-//         this.n = n;
-//         this.buckets = buckets;
-//     }
-// }
-
-class ListNode {
-	key: number;
-	value: number;
-	next: ListNode | null;
-
-    constructor(key:number, value: number, next: ListNode | null = null) {
+    constructor(key: number, value: number, next: MyListNode | null = null) {
         this.key = key;
         this.value = value;
-        this.next = next
+        this.next = next;
     }
 }
 
-class LinkedList {
-	head: ListNode | null;
+class MyLinkedList {
+    head: MyListNode | null;
 
-    constructor(head: ListNode | null = null) {
+    constructor(head: MyListNode | null = null) {
         this.head = head;
     }
 
     get(key: number): number {
-        let current: ListNode | null = this.head;
+        let current: MyListNode | null = this.head;
 
         while (current) {
             if (current.key === key) {
@@ -50,33 +40,60 @@ class LinkedList {
             current = current.next;
         }
 
-        let newNode = new ListNode(key, value, this.head);
-        this.head = newNode; 
+        const newNode = new MyListNode(key, value, this.head);
+        this.head = newNode;
     }
 
     remove(key: number): void {
-         
+        if (this.head === null) {
+            return;
+        }
+
+        if (this.head.key === key) {
+            this.head = this.head.next;
+            return;
+        }
+
+        let current = this.head;
+
+        while (current.next) {
+            if (current.next.key === key) {
+                current.next = current.next.next;
+                return;
+            }
+            current = current.next;
+        }
     }
 }
 
-class MyHashMap {
-	n:number;
-	buckets: LinkedList[];
+export class MyHashMap {
+    n: number;
+    buckets: MyLinkedList[];
 
-    constructor(n:number, buckets: LinkedList[]) {
+    constructor(n: number = 991) {
         this.n = n;
-        this.buckets = buckets;
+        this.buckets = new Array<MyLinkedList>(this.n);
+        for (let i = 0; i < this.n; i++) {
+            this.buckets[i] = new MyLinkedList();
+        }
+    }
+
+    hash(x: number): number {
+        return x % this.n;
     }
 
     put(key: number, value: number): void {
-        
+        const n = this.hash(key);
+        this.buckets[n].put(key, value);
     }
 
     get(key: number): number {
-        return -1;
+        const n = this.hash(key);
+        return this.buckets[n].get(key);
     }
 
     remove(key: number): void {
-        
+        const n = this.hash(key);
+        this.buckets[n].remove(key);
     }
 }
