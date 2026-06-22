@@ -68,7 +68,7 @@ export class MyLinkedList {
         this.addAtIndex(this.size, val);
     }
 
-    deleteAtIndex(index: number): void {
+    deleteAtIndex(index: number) {
         if (index >= this.size || index < 0) {
             return;
         }
@@ -120,19 +120,17 @@ export const deleteMiddle = (head: ListNode | null): ListNode | null => {
 
     while (slow && fast && fast.next) {
         fast = fast.next.next;
-        slow = slow!.next;
+        slow = slow.next;
     }
 
     if (slow && slow.next) {
-        slow!.next = slow!.next!.next;
+        slow.next = slow.next.next;
     }
 
     return head;
 };
 
-
-
-function isPalindrome(head: ListNode | null): boolean {
+export function isPalindrome(head: ListNode | null): boolean {
     function middle(head: ListNode | null): ListNode | null {
         let slow = head;
         let fast = head;
@@ -149,7 +147,7 @@ function isPalindrome(head: ListNode | null): boolean {
         let prev: ListNode | null = null;
 
         while (current) {
-            let tmp: ListNode | null = current.next;
+            const tmp: ListNode | null = current.next;
             current.next = prev;
             prev = current;
             current = tmp;
@@ -157,7 +155,7 @@ function isPalindrome(head: ListNode | null): boolean {
         return prev;
     }
     
-    let mid = middle(head);
+    const mid = middle(head);
     let second = reverse(mid)
     let first = head;
      
@@ -187,7 +185,7 @@ export function deleteDuplicates(head: ListNode | null): ListNode | null {
 };
 
 export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
-    let dummy = new ListNode(0);
+    const dummy = new ListNode(0);
     dummy.next = head;
     let slow: ListNode | null = dummy;
     let fast: ListNode | null = dummy;
@@ -211,12 +209,12 @@ export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | n
 };
 
 export function swapPairs(head: ListNode | null): ListNode | null {
-    let dummy = new ListNode(0, head);
+    const dummy = new ListNode(0, head);
     let current = dummy;
 
     while (current.next && current.next.next) {
-        let first = current.next;
-        let second = current.next.next;
+        const first = current.next;
+        const second = current.next.next;
 
         first.next = second.next;
         second.next = first;
@@ -229,7 +227,7 @@ export function swapPairs(head: ListNode | null): ListNode | null {
 };
 
 export function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
-    let dummy = new ListNode(0, null );
+    const dummy = new ListNode(0, null );
     let current = dummy;
 
     let p1 = list1;

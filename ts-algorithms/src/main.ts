@@ -1,9 +1,8 @@
-import { deleteDuplicates, deleteMiddle, middleNode, MyLinkedList, swapPairs } from './linked-list/linked-list-repeat.js';
-import { testList } from './linked-list/design-linked-list.js';
+import { deleteDuplicates, deleteMiddle, isPalindrome, middleNode, swapPairs } from './linked-list/linked-list-repeat.js';
 import { ListNode } from './linked-list/middle-off-the-linked-list.js';
 import { reverseList } from './linked-list/reverse-linked-list.js';
 import { containsNearbyDuplicate, countGoodSubstrings, longestOnes, longestSubarray, minimumDifference, minimumRecolors, totalFruit } from './sliding-window/sliding-window.js';
-import { containsDuplicate, isPalindrome, maxArea, removeDuplicates, reverseString, sortedSquares, strStr, tp, twoSum, } from './two-pointers/two-pointers.js';
+import { containsDuplicate, isPalindromeStr, maxArea, removeDuplicates, reverseString, sortedSquares, strStr, twoSum, } from './two-pointers/two-pointers.js';
 import { sum } from './utils/math.js';
 
 
@@ -13,7 +12,7 @@ sum(2, 3);
 
 /** Two pointers */
 containsDuplicate([1, 2, 3]);
-isPalindrome("A man, a plan, a canal: Panama");
+isPalindromeStr("A man, a plan, a canal: Panama");
 strStr('abc', 'c');
 reverseString(["h","e","l","l","o"]);
 twoSum([2, 3, 4], 6);
@@ -33,11 +32,13 @@ totalFruit([1,2,3,2,2]);
 
 /** Linked List */
 const list = new ListNode(1, new ListNode(2, new ListNode(3 , null)));
-const middleLinkedList = middleNode(list);
-const reverseLinkedList = reverseList(list);
-const del = deleteMiddle(list)
+middleNode(list);
+reverseList(list);
+deleteMiddle(list)
 const palindromeLinkerList = new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(1))));
+isPalindrome(palindromeLinkerList)
 const duplicates = new ListNode(1, new ListNode(1, new ListNode(2 , null)));
+deleteDuplicates(duplicates);
 const listPairs = new ListNode(1, new ListNode(2, new ListNode(3 , new ListNode(4))));
 swapPairs(listPairs);
 

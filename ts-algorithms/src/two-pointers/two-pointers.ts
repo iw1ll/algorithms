@@ -10,7 +10,7 @@ export const containsDuplicate = (nums: number[]): boolean => {
     return false;
 };
 
-export const isPalindrome = (s: string): boolean => {
+export const isPalindromeStr = (s: string): boolean => {
     const clean = s.toLowerCase().replace(/[^a-z0-9]/g, '');
     let left = 0;
     let right = clean.length - 1;
@@ -50,7 +50,7 @@ export const reverseString = (s: string[]): void => {
     let right = s.length - 1;
 
     while (left < right) {
-        let temp = s[left];
+        const temp = s[left];
         s[left] = s[right];
         s[right] = temp;
         left++;
@@ -63,7 +63,7 @@ export const twoSum = (numbers: number[], target: number): number[] => {
     let right = numbers.length - 1;
 
     while (left < right) {
-        let currentSum = numbers[left] + numbers[right];
+        const currentSum = numbers[left] + numbers[right];
 
         if (currentSum === target) {
             return [left + 1, right + 1]
@@ -83,8 +83,8 @@ export const sortedSquares = (nums: number[]): number[] => {
     let right = nums.length - 1;
 
     for (let i = nums.length - 1; i >= 0; i--) {
-        let rightSqrt = nums[right] * nums[right]; 
-        let leftSqrt = nums[left] * nums[left]; 
+        const rightSqrt = nums[right] * nums[right]; 
+        const leftSqrt = nums[left] * nums[left]; 
 
         if (rightSqrt > leftSqrt) {
             result[i] = rightSqrt;
