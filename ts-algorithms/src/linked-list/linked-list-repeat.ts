@@ -32,9 +32,9 @@ export class MyLinkedList {
         return current ? current.val : - 1;
     }
 
-    addAtIndex(index: number, val: number) {
+    addAtIndex(index: number, val: number): void {
         if (index > this.size || index < 0) {
-            return -1;
+            return ;
         }
 
         let current = this.head;
@@ -68,7 +68,7 @@ export class MyLinkedList {
         this.addAtIndex(this.size, val);
     }
 
-    deleteAtIndex(index: number) {
+    deleteAtIndex(index: number): void {
         if (index >= this.size || index < 0) {
             return;
         }
