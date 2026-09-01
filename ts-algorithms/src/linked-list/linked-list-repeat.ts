@@ -227,7 +227,7 @@ export function swapPairs(head: ListNode | null): ListNode | null {
 };
 
 export function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
-    const dummy = new ListNode(0, null );
+    const dummy = new ListNode(0, null);
     let current = dummy;
 
     let p1 = list1;

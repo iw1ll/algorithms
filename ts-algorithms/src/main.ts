@@ -1,3 +1,4 @@
+import { MyHashMap } from './hash-map/hash-map.js';
 import { deleteDuplicates, deleteMiddle, isPalindrome, middleNode, swapPairs } from './linked-list/linked-list-repeat.js';
 import { ListNode } from './linked-list/middle-off-the-linked-list.js';
 import { reverseList } from './linked-list/reverse-linked-list.js';
@@ -43,3 +44,6 @@ const listPairs = new ListNode(1, new ListNode(2, new ListNode(3 , new ListNode(
 swapPairs(listPairs);
 
 /** Hash Table */
+const hashMap = new MyHashMap()
+hashMap.put(1, 1)
+console.log(hashMap);

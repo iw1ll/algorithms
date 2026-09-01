@@ -205,6 +205,8 @@ function threeSum(nums: number[]): number[][] {
     return result;
 }
 
+threeSum([]);
+
 export const isSubsequence = (s:string, t: string): boolean => {
     let sNum = 0;
 

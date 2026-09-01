@@ -14,7 +14,7 @@ export const longestSubarray = (nums: number[]): number => {
             }
             begin++;
         }
-        let currentLength = end - begin;
+        const currentLength = end - begin;
         result = Math.max(result, currentLength);
     }
     return result;
@@ -113,7 +113,7 @@ export const minimumDifference = (nums: number[], k: number): number => {
     nums.sort((a, b) => a - b);
 
     for (let i = 0; i <= nums.length - k; i++) {
-        let diff = nums[i + k - 1] - nums[i];
+        const diff = nums[i + k - 1] - nums[i];
 
         result = Math.min(result, diff);
     }
@@ -128,7 +128,7 @@ export const minSubArrayLen = (target: number, nums: number[]): number => {
     for (let end = 0; end < nums.length; end++) {
         windowState += nums[end];
         while (windowState >= target) {
-            let windowsSize = end - begin + 1;
+            const windowsSize = end - begin + 1;
             result = Math.min(result, windowsSize);
             windowState -= nums[begin];
             begin++;
@@ -140,7 +140,7 @@ export const minSubArrayLen = (target: number, nums: number[]): number => {
 
 export const totalFruit = (fruits: number[]): number => {
     let begin = 0;
-    let windowState = new Map();
+    const windowState = new Map();
     let result = 0;
 
     for (let end = 0; end < fruits.length; end++) {
