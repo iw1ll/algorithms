@@ -46,4 +46,3 @@ swapPairs(listPairs);
 /** Hash Table */
 const hashMap = new MyHashMap()
 hashMap.put(1, 1)
-console.log(hashMap);
