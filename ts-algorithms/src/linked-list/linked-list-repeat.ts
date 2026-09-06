@@ -34,7 +34,7 @@ export class MyLinkedList {
 
     addAtIndex(index: number, val: number): void {
         if (index > this.size || index < 0) {
-            return ;
+            return;
         }
 
         let current = this.head;
@@ -43,7 +43,7 @@ export class MyLinkedList {
             const newNode = new ListNode(val, this.head);
             this.head = newNode;
             this.size++;
-            return
+            return;
         }
 
         for (let i = 0; i < index - 1; i++) {
