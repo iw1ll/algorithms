@@ -20,7 +20,6 @@ twoSum([2, 3, 4], 6);
 sortedSquares([-4 ,-1 ,0 ,3 , 10]);
 removeDuplicates([0,0,1,1,1,2,2,3,3,4]);
 maxArea([1,8,6,2,5,4,8,3,7]);
-https://leetcode.com/problems/3sum/ ---> решаем на свежую голову
 
 /** Sliding window  */
 longestSubarray([1, 0, 1, 1, 1]);
