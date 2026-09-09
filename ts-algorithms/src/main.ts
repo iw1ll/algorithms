@@ -2,6 +2,7 @@ import { MyHashMap } from './hash-map/hash-map.js';
 import { deleteDuplicates, deleteMiddle, isPalindrome, middleNode, swapPairs } from './linked-list/linked-list-repeat.js';
 import { ListNode } from './linked-list/middle-off-the-linked-list.js';
 import { reverseList } from './linked-list/reverse-linked-list.js';
+import { LRUCache } from './LRU/lru.js';
 import { containsNearbyDuplicate, countGoodSubstrings, longestOnes, longestSubarray, minimumDifference, minimumRecolors, totalFruit } from './sliding-window/sliding-window.js';
 import { containsDuplicate, isPalindromeStr, maxArea, removeDuplicates, reverseString, sortedSquares, strStr, twoSum, } from './two-pointers/two-pointers.js';
 import { sum } from './utils/math.js';
@@ -45,3 +46,9 @@ swapPairs(listPairs);
 /** Hash Table */
 const hashMap = new MyHashMap()
 hashMap.put(1, 1)
+
+/** LRU */
+const lru = new LRUCache(3);
+lru.put(1, 1);
+lru.put(2, 3);
+lru.put(3, 3);

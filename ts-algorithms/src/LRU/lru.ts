@@ -73,9 +73,12 @@ export class LRUCache {
         }
 
         if (Object.keys(this.data).length === this.capacity) {
-            const tailNode = this.tail!.prev!;
-            this.remove(tailNode);
-            delete this.data[tailNode.key];
+            if (this.tail && this.tail.prev) {
+                const tailNode = this.tail.prev;
+                this.remove(tailNode);
+                delete this.data[tailNode.key];
+            }
+            
         }
 
         const newNode = new Node(key, value);
