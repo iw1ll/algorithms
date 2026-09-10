@@ -4,7 +4,7 @@ import { ListNode } from './linked-list/middle-off-the-linked-list.js';
 import { reverseList } from './linked-list/reverse-linked-list.js';
 import { LRUCache } from './LRU/lru.js';
 import { containsNearbyDuplicate, countGoodSubstrings, longestOnes, longestSubarray, minimumDifference, minimumRecolors, totalFruit } from './sliding-window/sliding-window.js';
-import { isValid, removeDuplicatesS } from './stack-queue/stack-queue.js';
+import { isValid, removeDuplicatesS, simplifyPath } from './stack-queue/stack-queue.js';
 import { containsDuplicate, isPalindromeStr, maxArea, removeDuplicates, reverseString, sortedSquares, strStr, twoSum, } from './two-pointers/two-pointers.js';
 import { sum } from './utils/math.js';
 
@@ -52,6 +52,8 @@ hashMap.put(1, 1)
 const lru = new LRUCache(3);
 lru.put(1, 1);
 
-/** LRU */
+/** Stack queue */
 isValid('()[]{}');
-console.log(removeDuplicatesS('abbaca'))
+removeDuplicatesS('abbaca');
+simplifyPath("/home/user/Documents/../Pictures");
+console.log()
