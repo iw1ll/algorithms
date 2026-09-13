@@ -1,3 +1,5 @@
+import { ListNode } from "../linked-list/linked-list-repeat.js";
+
 export const containsDuplicate = (nums: number[]): boolean => {
     const sortNums = nums.sort((a, b) => a - b);
 
@@ -248,4 +250,20 @@ export const merge = (nums1: number[], m: number, nums2: number[], n: number): v
         }
         p--;
     }
+};
+
+export function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): ListNode | null {
+    if (!headA || !headB) {
+        return null;
+    }
+
+    let pointerA: ListNode | null = headA;
+    let pointerB: ListNode | null = headB;
+
+    while (pointerA !== pointerB) {
+        pointerA = pointerA === null ? headB : pointerA.next;
+        pointerB = pointerB === null ? headA : pointerB.next;
+    }
+
+    return pointerA;
 };
