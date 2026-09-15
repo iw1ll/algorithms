@@ -5,7 +5,7 @@ import { reverseList } from './linked-list/reverse-linked-list.js';
 import { LRUCache } from './LRU/lru.js';
 import { containsNearbyDuplicate, countGoodSubstrings, longestOnes, longestSubarray, minimumDifference, minimumRecolors, totalFruit } from './sliding-window/sliding-window.js';
 import { isValid, removeDuplicatesS, simplifyPath } from './stack-queue/stack-queue.js';
-import { containsDuplicate, isPalindromeStr, maxArea, removeDuplicates, reverseString, sortedSquares, strStr, twoSum, } from './two-pointers/two-pointers.js';
+import { containsDuplicate, findContentChildren, intersection, isPalindromeStr, maxArea, removeDuplicates, reverseString, reverseVowels, sortColors, sortedSquares, strStr, twoSum, } from './two-pointers/two-pointers.js';
 import { sum } from './utils/math.js';
 
 
@@ -22,6 +22,10 @@ twoSum([2, 3, 4], 6);
 sortedSquares([-4 ,-1 ,0 ,3 , 10]);
 removeDuplicates([0,0,1,1,1,2,2,3,3,4]);
 maxArea([1,8,6,2,5,4,8,3,7]);
+reverseVowels("IceCreAm");
+sortColors([2,0,2,1,1,0]);
+intersection([1,2,2,1], [2,2]);
+console.log(findContentChildren([1,2,3], [1,1]))
 
 /** Sliding window  */
 longestSubarray([1, 0, 1, 1, 1]);
@@ -56,4 +60,3 @@ lru.put(1, 1);
 isValid('()[]{}');
 removeDuplicatesS('abbaca');
 simplifyPath("/home/user/Documents/../Pictures");
-console.log()
