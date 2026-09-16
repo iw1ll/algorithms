@@ -361,3 +361,16 @@ export function findContentChildren(g: number[], s: number[]): number {
 
     return count;
  };
+
+export function reverseStr(s: string, k: number): string {
+    const arr = s.split('');
+
+    for (let i = 0; i < arr.length; i += 2 * k) {
+      const left = i;
+      const right = Math.min(i + k - 1, arr.length -1);
+
+      [arr[left], arr[right]] = [arr[right], arr[left]];
+    }
+
+    return arr.join('');
+};
