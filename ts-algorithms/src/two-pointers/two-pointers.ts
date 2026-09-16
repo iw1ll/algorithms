@@ -340,37 +340,92 @@ export function intersection(nums1: number[], nums2: number[]): number[] {
   return result;
 }
 
-
 export function findContentChildren(g: number[], s: number[]): number {
-    g.sort((a, b) => a - b);
-    s.sort((a, b) => a - b);
+  g.sort((a, b) => a - b);
+  s.sort((a, b) => a - b);
 
-    let count = 0;
-    let p1 = 0;
-    let p2 = 0;
-    
-    while (p1 < g.length && p2 < s.length) {
-        if (s[p2] >= g[p1]) {
-            count++;
-            p1++;
-            p2++;
-        } else {
-            p2++;
-        }
+  let count = 0;
+  let p1 = 0;
+  let p2 = 0;
+
+  while (p1 < g.length && p2 < s.length) {
+    if (s[p2] >= g[p1]) {
+      count++;
+      p1++;
+      p2++;
+    } else {
+      p2++;
     }
+  }
 
-    return count;
- };
+  return count;
+}
 
 export function reverseStr(s: string, k: number): string {
-    const arr = s.split('');
+  const arr = s.split("");
 
-    for (let i = 0; i < arr.length; i += 2 * k) {
-      const left = i;
-      const right = Math.min(i + k - 1, arr.length -1);
+  for (let i = 0; i < arr.length; i += 2 * k) {
+    let left = i;
+    let right = Math.min(i + k - 1, arr.length - 1);
 
+    while (left < right) {
       [arr[left], arr[right]] = [arr[right], arr[left]];
+      left++;
+      right--;
+    }
+  }
+
+  return arr.join("");
+}
+
+export function validPalindrome(s: string): boolean {
+  let left = 0;
+  let right = s.length - 1;
+
+  function isPalindrome(left: number, right: number): boolean {
+    while (left < right) {
+      if (s[left] !== s[right]) {
+        return false;
+      }
+
+      left++;
+      right--;
     }
 
-    return arr.join('');
-};
+    return true;
+  }
+
+  while (left < right) {
+    if (s[left] !== s[right]) {
+      return isPalindrome(left + 1, right) || isPalindrome(left, right - 1);
+    }
+
+    left++;
+    right--;
+  }
+  return true;
+}
+
+export function reverseWords(s: string): string {
+  const chars: string[] = s.split('');
+  const n = s.length;
+  let start = 0;
+
+  for (let end = 0; end <= n; end++) {
+    if (end === n || chars[end] === '') {
+      let left = start;
+      let right = end - 1;
+
+      while (left < right) {
+        [chars[left], chars[right]] = [chars[right], chars[left]];
+        left++;
+        right--;
+      }
+
+      start = end  + 1;
+    }
+  }
+
+  return chars.join('');
+}
+

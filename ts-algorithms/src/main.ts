@@ -5,7 +5,7 @@ import { reverseList } from './linked-list/reverse-linked-list.js';
 import { LRUCache } from './LRU/lru.js';
 import { containsNearbyDuplicate, countGoodSubstrings, longestOnes, longestSubarray, minimumDifference, minimumRecolors, totalFruit } from './sliding-window/sliding-window.js';
 import { isValid, removeDuplicatesS, simplifyPath } from './stack-queue/stack-queue.js';
-import { containsDuplicate, findContentChildren, intersection, isPalindromeStr, maxArea, removeDuplicates, reverseStr, reverseString, reverseVowels, sortColors, sortedSquares, strStr, twoSum, } from './two-pointers/two-pointers.js';
+import { containsDuplicate, findContentChildren, intersection, isPalindromeStr, maxArea, removeDuplicates, reverseStr, reverseString, reverseVowels, reverseWords, sortColors, sortedSquares, strStr, twoSum, validPalindrome, } from './two-pointers/two-pointers.js';
 import { sum } from './utils/math.js';
 
 
@@ -26,7 +26,9 @@ reverseVowels("IceCreAm");
 sortColors([2,0,2,1,1,0]);
 intersection([1,2,2,1], [2,2]);
 findContentChildren([1,2,3], [1,1]);
-console.log(reverseStr('abcdefg', 2));
+reverseStr('abcdefg', 2);
+validPalindrome("abc");
+console.log(reverseWords("Let's take LeetCode contest"));
 
 /** Sliding window  */
 longestSubarray([1, 0, 1, 1, 1]);
