@@ -28,7 +28,7 @@ intersection([1,2,2,1], [2,2]);
 findContentChildren([1,2,3], [1,1]);
 reverseStr('abcdefg', 2);
 validPalindrome("abc");
-console.log(reverseWords("Let's take LeetCode contest"));
+reverseWords("Let's take LeetCode contest");
 
 /** Sliding window  */
 longestSubarray([1, 0, 1, 1, 1]);
