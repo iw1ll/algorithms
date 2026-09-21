@@ -158,3 +158,23 @@ export const totalFruit = (fruits: number[]): number => {
 
     return result;
 };
+
+export function findLHS(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+
+    let begin = 0;
+    let result = 0;
+
+    for (let end = 0; end < nums.length; end++) {
+        while (nums[end] - nums[begin] > 1) {
+            begin++;
+        }
+
+        if (nums[end] - nums[begin] === 1) {
+            result = Math.max(result, end - begin + 1);
+        }
+    }
+
+    return result;
+};
+
