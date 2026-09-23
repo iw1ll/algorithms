@@ -3,7 +3,7 @@ import { deleteDuplicates, deleteMiddle, isPalindrome, middleNode, swapPairs } f
 import { ListNode } from './linked-list/middle-off-the-linked-list.js';
 import { reverseList } from './linked-list/reverse-linked-list.js';
 import { LRUCache } from './LRU/lru.js';
-import { containsNearbyDuplicate, countGoodSubstrings, findLHS, longestOnes, longestSubarray, minimumDifference, minimumRecolors, totalFruit } from './sliding-window/sliding-window.js';
+import { containsNearbyDuplicate, countGoodSubstrings, findLHS, longestOnes, longestSubarray, minimumDifference, minimumRecolors, numSubarrayProductLessThanK, totalFruit } from './sliding-window/sliding-window.js';
 import { isValid, removeDuplicatesS, simplifyPath } from './stack-queue/stack-queue.js';
 import { containsDuplicate, findContentChildren, intersection, isPalindromeStr, maxArea, removeDuplicates, reverseStr, reverseString, reverseVowels, reverseWords, sortColors, sortedSquares, strStr, twoSum, validPalindrome, } from './two-pointers/two-pointers.js';
 import { sum } from './utils/math.js';
@@ -38,7 +38,8 @@ countGoodSubstrings('aababcabc');
 minimumRecolors('WBWBBBW', 2);
 minimumDifference([9, 4, 1, 7], 2);
 totalFruit([1,2,3,2,2]);
-console.log(findLHS([1,3,2,2,5,2,3,7]));
+findLHS([1,3,2,2,5,2,3,7]);
+console.log(numSubarrayProductLessThanK([10,5,2,6], 100));
 
 /** Linked List */
 const list = new ListNode(1, new ListNode(2, new ListNode(3 , null)));

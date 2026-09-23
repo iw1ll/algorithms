@@ -178,3 +178,21 @@ export function findLHS(nums: number[]): number {
     return result;
 };
 
+export function numSubarrayProductLessThanK(nums: number[], k: number): number {
+    let product = 0;
+    let result = 0;
+    let begin = 0;
+
+    for (let end = 0; end < nums.length; end++) {
+        product *= nums[end];
+
+        while (product >= k && begin <= end) {
+            product /= nums[begin]
+            begin++;
+        }
+
+        result = end- begin + 1
+    }
+
+    return result;
+};
