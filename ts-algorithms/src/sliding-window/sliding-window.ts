@@ -196,3 +196,20 @@ export function numSubarrayProductLessThanK(nums: number[], k: number): number {
 
     return result;
 };
+
+export function divisorSubstrings(num: number, k: number): number {
+    const numString =  num.toString();
+    let count = 0;
+
+    for (let i = 0; i <= numString.length - k; i++) {
+        const subSting = numString.slice(i, i + k);
+        const value = parseInt(subSting);
+
+        if (value !== 0 && num % value === 0) {
+            count++;
+        }
+    }
+    
+    return count;
+};
+
